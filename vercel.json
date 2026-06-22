@@ -5,7 +5,7 @@
   "outputDirectory": "Frontend/Frontend/dist",
   "functions": {
     "api/**/*.js": {
-      "runtime": "@vercel/node"
+      "runtime": "@vercel/node@20.x"
     }
   },
   "rewrites": [
