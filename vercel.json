@@ -3,11 +3,16 @@
   "installCommand": "npm install && cd Frontend/Frontend && npm install",
   "buildCommand": "cd Frontend/Frontend && npm run build",
   "outputDirectory": "Frontend/Frontend/dist",
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "@vercel/node@20.x"
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "Frontend/Frontend/dist/**",
+      "use": "@vercel/static"
     }
-  },
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
@@ -15,7 +20,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "Frontend/Frontend/dist/index.html"
     }
   ]
 }
