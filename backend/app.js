@@ -2,9 +2,9 @@ const express=require("express");
 const dotenv=require("dotenv");
 dotenv.config();
 const app=express();
-const db=require("db");
+const db=require("./db");
 const cors=require("cors");
-const getItems=require("script");
+const getItems=require("./script");
 const PORT=process.env.PORT_SERVER || 5000;
 app.use(cors());    
 app.use(express.json());
@@ -22,7 +22,7 @@ app.get("/:filter",async(req,res)=>{
 });
 if(process.env.NODE_ENV!=="production"){
     app.listen(PORT,()=>{
-    console.log("Server is running on port 5000");
+    console.log(`Server is running on port ${PORT}`);
 });
 }
 module.exports=app;
