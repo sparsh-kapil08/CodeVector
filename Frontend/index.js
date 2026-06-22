@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           return;
         }
 
-        itemListData = [...itemListData, newItem];
+        itemListData = [newItem,...itemListData];
         console.log("New item added:", newItem);
         console.log("Updated item list:", itemListData);
       }
