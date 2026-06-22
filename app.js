@@ -12,6 +12,13 @@ app.get("/",async(req,res)=>{
     const items=await getItems(db);
     res.json(items);
 });
+app.get("/:filter",async(req,res)=>{
+    const filter=req.params.filter;
+    const resp=await db.query(`SELECT * FROM ITEMS WHERE category=$1 ORDER BY updated_at DESC `,[filter]);
+    const items=resp.rows;
+
+    res.json(items);
+});
 app.listen(5000,()=>{
     console.log("Server is running on port 5000");
 });

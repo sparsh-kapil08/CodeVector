@@ -23,7 +23,7 @@ async function getItems(db){
         }
     }
 
-    const res=await db.query("SELECT * FROM items ORDER BY updated_at LIMIT 50000 ");
+    const res=await db.query("SELECT * FROM items ORDER BY updated_at DESC ");
     return res.rows;
 };
 module.exports=getItems;
