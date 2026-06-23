@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       const response = await fetch(`${backendUrl}/${currentFilter}`);
       itemListData = await response.json();
+      items.textContent = "Loading";
       renderPage();
     } catch (error) {
       items.textContent = "Error fetching items.";
