@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   submit.addEventListener("click", async () => {
     try {
+      itemDiv.innerHTML="";
       currentFilter = filter.value;
       page = 1;
 
